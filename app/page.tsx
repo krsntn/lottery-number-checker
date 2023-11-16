@@ -14,13 +14,15 @@ export default function Home() {
     // Get the lottery numbers as an array of integers
     const lotteryInput = lotteryRef.current?.value;
     const lotteryNumbers = lotteryInput
-      ? lotteryInput.split(/[ \t]+/).map(Number)
+      ? lotteryInput.split(/[\, \t]+/).map(Number)
       : [];
 
     // Get the text area input and split it into a 2D array of numbers
     const textAreaInput = textAreaRef.current?.value;
     const twoDArr = textAreaInput
-      ? textAreaInput.split("\n").map((row) => row.split(/[ \t]+/).map(Number))
+      ? textAreaInput
+          .split("\n")
+          .map((row) => row.split(/[\, \t]+/).map(Number))
       : [];
 
     // Initialize the result array
